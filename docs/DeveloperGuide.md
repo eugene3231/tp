@@ -268,16 +268,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `CliniCal` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  CliniCal shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  CliniCal deletes the person
 
     Use case ends.
 
@@ -289,24 +289,65 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CliniCal shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Add a person**
+
+**MSS**
+
+1.  User keys in command to add a person
+2.  CliniCal shows an updated list of persons
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The given command is invalid.
+    * 1a1. CliniCal shows an error message.
+
+  Use case resumes at step 1.
+
+**Use case: Edit a person**
+
+**MSS**
+
+1.  User requests to list persons
+2.  CliniCal shows a list of persons
+3.  User requests to edit a specific person in the list, providing the details to edit the person with
+4.  CliniCal edits the person
+
+    Use case ends.
+
+**Extensions**
+
+* 3a. The person cannot be found.
+    * 3a1. CliniCal shows an error message.
+
+    Use case resumes at Step 3.
+
+* 3b. The person cannot be found.
+    * 3b1. CliniCal shows an error message.
+
+    Use case resumes at Step 3.
 
 *{More to be added}*
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. Should work on any mainstream OS as long as it has Java `11` installed.
+1. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+1. Should be able to schedule up to 100 patient appointments without a noticeable sluggishness in performance for typical usage.
+1. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 *{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Patient records**: Extensive collection of patients’ private information (not meant to be shared) and medical histories.
+* **Main window**: Application’s opening window which displays a command bar and the list of patients.
 
 --------------------------------------------------------------------------------------------------------------------
 
